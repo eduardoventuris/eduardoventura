@@ -1,66 +1,11 @@
 import Link from "next/link";
-import { FiArrowRight, FiCheckCircle, FiLayers, FiShield } from "react-icons/fi";
 import Header from "./componentes/header";
 import Footer from "./componentes/footer";
 
-const featureIcons = [FiCheckCircle, FiLayers, FiShield];
-
 export default function Home() {
   return (
-    <div className="site-frame flex min-h-screen flex-col">
-      <Header />
-
-      <main className="site-main">
-        <div className="shell page-space">
-          <section className="hero-panel">
-            <div className="hero-grid">
-              <div className="hero-copy">
-                <span className="hero-badge">Versao 10</span>
-                <h1 className="hero-title">Uma interface inspirada em planner, com cartões de papel, anotações visuais e ritmo mais leve.</h1>
-                <p className="soft-copy mt-5 max-w-3xl text-base sm:text-lg">
-                  Esta versão foge das anteriores usando um visual de mural organizado, com blocos que lembram folhas e painéis de estudo, mantendo exatamente as mesmas rotas e funcionalidades do sistema.
-                </p>
-
-                <div className="hero-actions mt-8">
-                  <Link href="/sistema/paginas/curriculos" className="btn-primary">
-                    Entrar na lista
-                    <FiArrowRight />
-                  </Link>
-                  <Link href="/sistema/paginas/curriculos/novo" className="btn-secondary">
-                    Cadastrar novo perfil
-                  </Link>
-                </div>
-              </div>
-
-              <div className="hero-aside">
-                <article className="hero-highlight">
-                  <FiCheckCircle className="mb-4 h-5 w-5" />
-                  <strong>Planner visual</strong>
-                  <p className="soft-copy m-0 text-sm">
-                    Todos os fluxos obrigatorios continuam preservados, apenas com nova apresentacao visual.
-                  </p>
-                </article>
-<article className="hero-highlight">
-                  <FiLayers className="mb-4 h-5 w-5" />
-                  <strong>Cartoes sobrepostos</strong>
-                  <p className="soft-copy m-0 text-sm">
-                    A camada de interface foi reorganizada para mudar percepcao e hierarquia sem mexer na regra de negocio.
-                  </p>
-                </article>
-<article className="hero-highlight">
-                  <FiShield className="mb-4 h-5 w-5" />
-                  <strong>Leitura leve</strong>
-                  <p className="soft-copy m-0 text-sm">
-                    Leve, organizada e com linguagem de planner.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+    <div className="site-shell"><Header /><div className="main-pane"><main className="page-wrap">
+      <section className="grid gap-4 lg:grid-cols-3"><article className="rounded-3xl border border-green-200 bg-white p-5 lg:col-span-2"><span className="inline-flex rounded-sm px-2 py-1 text-xs font-bold bg-green-100 text-green-900">PaperLane</span><h1 className="mt-4 text-3xl font-extrabold text-slate-900">Cadastro e consulta de registros.</h1><p className="mt-3 text-sm leading-7 text-slate-600">Use o sistema para registrar candidatos e acessar cada currículo com rapidez.</p></article><article className="rounded-3xl bg-green-50 p-5"><p className="text-sm font-semibold text-slate-800">Acesso rápido</p><div className="mt-4 grid gap-2"><Link href="/sistema/paginas/curriculos" className="rounded-lg px-4 py-3 text-center text-sm font-semibold bg-green-700 hover:bg-green-800 text-white">Abrir lista</Link><Link href="/sistema/paginas/curriculos/novo" className="rounded-lg border px-4 py-3 text-center text-sm font-semibold border-green-300 text-green-800">Cadastrar</Link></div></article><article className="rounded-3xl border border-green-200 bg-white p-5"><p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Funcionalidades</p><ul className="mt-4 grid gap-2 text-sm text-slate-700"><li>Busca imediata</li><li>Detalhes dinâmicos</li><li>Validação completa</li></ul></article><article className="rounded-3xl border border-green-200 bg-white p-5"><p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Persistência</p><p className="mt-3 text-sm text-slate-700">Os dados ficam armazenados localmente.</p></article></section>
+    </main><Footer /></div></div>
   );
 }

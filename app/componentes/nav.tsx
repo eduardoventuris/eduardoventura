@@ -2,32 +2,32 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiGrid, FiHome, FiPlusCircle } from "react-icons/fi";
+import { FiFolder, FiHome, FiPlusSquare } from "react-icons/fi";
 
-const links = [
-  { label: "Home", href: "/", icon: FiHome },
-  { label: "Curriculos", href: "/sistema/paginas/curriculos", icon: FiGrid },
-  { label: "Cadastrar", href: "/sistema/paginas/curriculos/novo", icon: FiPlusCircle },
+const menuLinks = [
+  { label: "Mural", href: "/", icon: FiHome },
+  { label: "Anotacoes", href: "/sistema/paginas/curriculos", icon: FiFolder },
+  { label: "Criar", href: "/sistema/paginas/curriculos/novo", icon: FiPlusSquare },
 ];
 
 export default function Nav() {
-  const pathname = usePathname();
+  const currentPath = usePathname();
 
   return (
     <nav className="app-nav" aria-label="Navegacao principal">
-      {links.map((link) => {
-        const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-        const Icon = link.icon;
+      {menuLinks.map((item) => {
+        const isCurrent = currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href));
+        const Glyph = item.icon;
 
         return (
           <Link
-            key={link.href}
-            href={link.href}
-            className={`nav-link ${isActive ? "active" : ""}`}
-            aria-current={isActive ? "page" : undefined}
+            key={item.href}
+            href={item.href}
+            className={`nav-link ${isCurrent ? "active" : ""}`}
+            aria-current={isCurrent ? "page" : undefined}
           >
-            <Icon />
-            {link.label}
+            <Glyph />
+            {item.label}
           </Link>
         );
       })}

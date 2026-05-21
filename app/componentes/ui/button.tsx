@@ -1,17 +1,23 @@
 import type { ButtonHTMLAttributes } from "react";
 
-type Variant = "primary" | "secondary" | "danger";
+type VariantJ = "primary" | "secondary" | "danger";
 
-function getVariantClassName(variant: Variant) {
-  if (variant === "secondary") return "btn-secondary";
-  if (variant === "danger") return "btn-danger";
-  return "btn-primary";
-}
-
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: Variant;
+const classesJ: Record<VariantJ, string> = {
+  primary: "btn-primary",
+  secondary: "btn-secondary",
+  danger: "btn-danger",
 };
 
-export function Button({ className = "", variant = "primary", ...props }: ButtonProps) {
-  return <button className={`${getVariantClassName(variant)} ${className}`.trim()} {...props} />;
+type PropsJ = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: VariantJ;
+};
+
+function layerJ(variant: VariantJ, customClass: string) {
+  const partsJ = [classesJ[variant]];
+  if (customClass) partsJ.push(customClass);
+  return partsJ.join(" ").trim();
+}
+
+export function Button({ className = "", variant = "primary", ...props }: PropsJ) {
+  return <button data-ui="button-10" className={layerJ(variant, className)} {...props} />;
 }

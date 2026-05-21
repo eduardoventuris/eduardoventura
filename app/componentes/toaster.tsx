@@ -2,18 +2,14 @@
 
 import { Toaster } from "sonner";
 
+const toastOptionsJ = {
+  style: {
+    background: "#fff1f2",
+    color: "#9f1239",
+    border: "1px solid #fda4af",
+  },
+};
+
 export default function AppToaster() {
-  return (
-    <Toaster
-      richColors
-      position="top-right"
-      toastOptions={{
-        style: {
-          background: "#fffef8",
-          color: "#3f3a2d",
-          border: "1px solid rgba(22, 163, 74, 0.18)",
-        },
-      }}
-    />
-  );
+  return <Toaster richColors position="top-center" expand={true} toastOptions={toastOptionsJ} />;
 }
